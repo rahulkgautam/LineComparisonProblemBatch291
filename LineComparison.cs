@@ -6,7 +6,7 @@ namespace LineComparisonProblem
 {
     class LineComparison
     {
-        public static void LineOfLength()
+        public static void ISTwoLineEqual()
         {
             try
             {
@@ -27,11 +27,19 @@ namespace LineComparisonProblem
                 double length = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
 
                 Console.WriteLine($"The length of the line connecting ({x1},{y1}) and ({x2},{y2}) is {length}");
+                if ((x1 == y1 && y2 == x2) || (x1 == x2 && y1 == y2))
+                {
+                    Console.WriteLine("The two lines are equal.");
+                }
+                else
+                {
+                    Console.WriteLine("The two lines are not equal.");
+                }
             }
             catch (Exception e)
             {
-                Console.WriteLine("Please Enter only Number");
+                Console.WriteLine("Please Enter only Number with comma separated");
             }
-        }    
+        }
     }
 }
