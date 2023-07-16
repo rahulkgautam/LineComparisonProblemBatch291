@@ -4,39 +4,21 @@ using System.Text;
 
 namespace LineComparisonProblem
 {
-    class LineComparison
+    public class LineComparison 
     {
-        public static void CompareTwoLineEqualOrLess()
+        EnterInput datails = null;
+        public void AddObject(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4)
+        {
+            datails = new EnterInput(x1,y1,x2,y2,x3,y3,x4,y4);
+            CompareTwoLineEqualOrLess();
+        }
+        public void CompareTwoLineEqualOrLess()
         {
             try
             {
-                double x1, y1, x2, y2, x3, y3, x4, y4;
-                Console.WriteLine("Enter the (x1,y1) coordinates of the first point comma separated:");
-                var x1y1 = Console.ReadLine();
-                string[] xy1 = x1y1.Split(",");
-                x1 = Convert.ToDouble(xy1[0]);
-                y1 = Convert.ToDouble(xy1[1]);
-
-                Console.WriteLine("Enter the (x2,y2) coordinates of the second point comma separated:");
-                var x2y2 = Console.ReadLine();
-                string[] xy2 = x2y2.Split(",");
-                x2 = Convert.ToDouble(xy2[0]);
-                y2 = Convert.ToDouble(xy2[1]);
-
-                Console.WriteLine("Enter the (x3,y3) coordinates of the second point comma separated:");
-                var x3y3 = Console.ReadLine();
-                string[] xy3 = x3y3.Split(",");
-                x3 = Convert.ToDouble(xy3[0]);
-                y3 = Convert.ToDouble(xy3[1]);
-
-                Console.WriteLine("Enter the (x4,y4) coordinates of the second point comma separated:");
-                var x4y4 = Console.ReadLine();
-                string[] xy4 = x4y4.Split(",");
-                x4 = Convert.ToDouble(xy4[0]);
-                y4 = Convert.ToDouble(xy4[1]);
-
-                double length1 = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-                double length2 = Math.Sqrt(Math.Pow(x4 - x3, 2) + Math.Pow(y4 - y3, 2));
+                var data= datails.UserInputDetails();
+                double length1 = Math.Sqrt(Math.Pow(data.X2 - data.X1, 2) + Math.Pow(data.Y2 - data.Y1, 2));
+                double length2 = Math.Sqrt(Math.Pow(data.X4 - data.X3, 2) + Math.Pow(data.Y4 - data.Y3, 2));
 
                 int comparisonResult = length1.CompareTo(length2);
 
